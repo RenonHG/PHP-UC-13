@@ -7,7 +7,7 @@
             <?php foreach ($produtos as $key => $info) { ?>
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <figure>
-                        <img src="./assets/img/<?= $info['poster'] ?>" alt="Poster do jogo Jedi Survivor" class="foto-produto">
+                        <img src="./assets/img/<?= $info['imagem'] ?>" alt="Poster do jogo Jedi Survivor" class="foto-produto">
                         <figcaption>
                             <!-- <h4><?php echo $info['titulo'] ?></h4> -->
                             <!-- Posso utilizar esse mesmo comando simplificando da seguinte forma: ↓  -->
