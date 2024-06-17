@@ -8,3 +8,4 @@ $query = "SELECT * FROM tb_produto";
 $produtos = $conexao-> query($query)->fetchAll();
 
 include './pages/produto.php';
+
