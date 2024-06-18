@@ -15,9 +15,10 @@ if (isset($_GET['nome'])) {
     $query = "select * from tb_produto WHERE titulo LIKE '%{$busca}%'";
     $resultado = $conexao->query($query)->fetchAll();
 }
+echo '<pre>';
+var_dump($resultado);   
 
 ?>
-
 
 <body>
 
@@ -41,16 +42,16 @@ if (isset($_GET['nome'])) {
         <tbody>
             <?php
             if (!empty($resultado)) {
-                foreach ($resultado as $value) { 
+                foreach ($resultado as $value) {
             ?>
                     <tr>
-                        <td> <?= $value['id']?> </td>
-                        <td> <?= $value['titulo']?> </td>
-                        <td>R$<?= str_replace("." , "," , $value['preco'])?> </td>
+                        <td> <?= $value['id'] ?> </td>
+                        <td> <?= $value['titulo'] ?> </td>
+                        <td>R$<?= str_replace(".", ",", $value['preco']) ?> </td>
                     </tr>
-            <?php  
+            <?php
                 }
-            } 
+            }
             ?>
 
         </tbody>
