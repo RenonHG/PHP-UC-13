@@ -21,7 +21,9 @@
         flex-direction: column;
         background-color: slateblue;
         border-radius: 15px;
-
+        width: 300px;
+        justify-content: center;
+        align-items: center;
     }
 
     input[type="text"] {
@@ -46,6 +48,8 @@
 
 <pre>
 
+
+
 <?php
 
 if (isset($_POST) && !empty($_POST)) {
@@ -67,7 +71,7 @@ if (isset($_POST) && !empty($_POST)) {
     // var_dump($resultado);
 
     //verifica se a variável resultado tem algum valor
-    if(!empty($resultado)){
+    if (!empty($resultado)) {
         echo 'Usuário validado com sucesso!';
         header('location:valido.php');
     } else {
@@ -79,6 +83,7 @@ if (isset($_POST) && !empty($_POST)) {
 
 <body>
     <form action="#" method="POST">
+        <h1>Login</h1>
         <input type="text" name="usuario" placeholder="Login">
         <input type="text" name="senha" placeholder="Digite sua senha">
         <input type="submit" value="Enviar">
