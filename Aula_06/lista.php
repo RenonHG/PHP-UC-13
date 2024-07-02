@@ -35,7 +35,7 @@ $dados = $usuario->ListarUsuarios();
                         <td><?= $value['senha'] ?></td>
 
                         <td class="d-flex justify-content-center gap-1">
-                            <a href="cadatro.php?id=<?= $value['id'] ?>" class="btn btn-outline-warning">Editar</a>
+                            <a href="cadastro.php?id=<?= $value['id'] ?>" class="btn btn-outline-warning">Editar</a>
                             <a href="usuariodelete.php?id=<?= $value['id'] ?>" class="btn btn-outline-danger">Apagar</a>
                         </td>
 
