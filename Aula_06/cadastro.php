@@ -23,6 +23,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
                <?= isset($id_alterar) ? 'Alterar Dados' : 'Cadastrar Dados' ?>
             </h1>
 
+            <input type="hidden" name="id_para_alterar" value="<?= isset($id_alterar) ? $dadosUsuario['id'] : '' ?>">
+
             <div class="form-floating my-2">
                 <input type="text" class="form-control" <?= isset($id_alterar) ? 'disabled' : '' ?> id="nome" name="nome" placeholder="Nome">
                 <label for="nome">Nome</label>

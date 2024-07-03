@@ -67,22 +67,54 @@ class Usuario
         $script = "DELETE FROM tb_usuario WHERE id=:id";
 
         $preparo = $conn->prepare($script);
-      
+
         $preparo->execute([
             ':id' => $id_delete
         ]);
 
         return $preparo->rowCount();
-        
     }
 
     public function Listar1Usuario($id_consulta)
     {
         $conn = new PDO("mysql:host=localhost; dbname=db_login", "root", "");
-        $script = "SELECT * FROM tb_usuario WHERE id= ". $id_consulta;
-        
+        $script = "SELECT * FROM tb_usuario WHERE id= " . $id_consulta;
+
         $lista = $conn->query($script)->fetch();
-        
+
         return $lista;
+    }
+
+    public function AtualizarUsuario($id_para_alterar, $user, $password, $passwordConfirm)
+    {
+        try {
+
+            if (empty($user) || $user == null) {
+                return "<br>Usuário não informado";
+            }
+            if (empty($password) || $password == null) {
+                return "<br>Senha não informada";
+            }
+
+            if ($password != $passwordConfirm) {
+                return "<br>Senhas não são iguias";
+            }
+
+            $conn = new PDO("mysql:host=localhost; dbname=db_login", "root", "");
+            $script = "UPDATE tb_usuario SET usuario = :usuario, senha = :senha WHERE id = :id";
+
+            $preparo = $conn->prepare($script);
+
+            $preparo->execute([
+                ':usuario' => $user,
+                ':senha' => $password,
+                ':id' => $id_para_alterar
+            ]);
+
+            return "Usuário alterado com sucesso, id: " . $id_para_alterar;
+
+        } catch (PDOException $erro) {
+            echo "Seguinte, deu erro no negocio do treco <br>" . $erro->getMessage();
+        }
     }
 }
