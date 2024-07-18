@@ -6,7 +6,7 @@
     <a class="navbar-brand" href="#">Página de Perfil de Personagens de Filmes</a>
 
 
-    <form class="d-flex mt-3" role="search" action="validar.php" method="post">
+    <form class="d-flex mt-3" role="search" action="index.php" method="post">
       <input class="form-control me-2" name="buscar" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-success" type="submit">Buscar</button>
     </form>
@@ -19,16 +19,16 @@
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="display: flex; gap:15px; align-items:center;">
-          <img src="./img/<?= $retVal = (isset($_SESSION['fotoPerfilLogado'])) ? $_SESSION['fotoPerfilLogado'] : 'perfil.png'; ?>" class="rounded-circle" height="65px" alt="Black and White Portrait of a Man" loading="lazy"> 
+          <img src="./img/<?= $retVal = (isset($_SESSION['fotoPerfilLogado'])) ? $_SESSION['fotoPerfilLogado'] : 'perfil.png'; ?>" class="rounded-circle" height="65px" alt="Black and White Portrait of a Man" loading="lazy">
 
           <a class="nav-link" href="#">
-          <?= $retVal = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : ''; ?>
+            <?= $retVal = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : ''; ?>
 
-          
+
 
           </a>
 
-          
+
         </h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
@@ -56,14 +56,18 @@
 
           <li class="nav-item">
             <a class="nav-link" href="login.php">Logar Usuário</a>
-
           </li>
 
-          <li class="nav-item">
-            <?php
-            echo $retVal = (isset($_SESSION["usuario"])) ? '<a class="nav-link" href="#">Cadastrar Perfil</a>' : '';
-            ?>
-          </li>
+
+          <?php if (isset($_SESSION['nivel']) && $_SESSION['nivel'] != "base") { ?>
+           
+            <li class="nav-item">
+              
+              <a class="nav-link" href="#">Cadastrar Perfil</a>
+              
+            </li>
+
+          <?php } ?>
 
           <li class="nav-item">
             <?php

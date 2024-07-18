@@ -16,9 +16,10 @@ if($dados->num_rows >0){
     $linha = $dados->fetch_assoc();
     $foto = $linha['foto'];
 
-    $_SESSION['fotoPerfilLogado'] = $foto;
+    $_SESSION["fotoPerfilLogado"] = $foto;
 
-
+    $nivel = $linha['nivel'];
+    $_SESSION["nivel"] = $nivel;
 
 
     header('Location: index.php');
